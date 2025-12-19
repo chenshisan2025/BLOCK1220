@@ -199,3 +199,25 @@ CREATE TABLE IF NOT EXISTS pending_rewards (
 );
 CREATE INDEX IF NOT EXISTS idx_pending_rewards_status_ts ON pending_rewards(status, created_ts DESC);
 CREATE UNIQUE INDEX IF NOT EXISTS uniq_pending_rewards_once ON pending_rewards(source, ref_id, address);
+
+-- 14-R.3: DB-first risk policy + audit
+CREATE TABLE IF NOT EXISTS risk_policies (
+  policy_id TEXT PRIMARY KEY,
+  version INT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'active',
+  config JSONB NOT NULL,
+  updated_by TEXT,
+  updated_ts BIGINT NOT NULL,
+  created_ts BIGINT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS risk_policy_audit (
+  id BIGSERIAL PRIMARY KEY,
+  policy_id TEXT NOT NULL,
+  action TEXT NOT NULL,
+  before JSONB,
+  after JSONB,
+  actor TEXT NOT NULL,
+  ts BIGINT NOT NULL,
+  note TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_risk_policy_audit_ts ON risk_policy_audit(ts DESC);

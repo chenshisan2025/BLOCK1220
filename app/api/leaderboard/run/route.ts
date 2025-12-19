@@ -4,6 +4,7 @@ import { submitRun } from "../../../../src/server/leaderboard/store";
 import { migratePg } from "../../../../src/server/db/migratePg";
 import { evaluateRisk } from "../../../../src/server/risk/riskModel";
 import { antiCheatRepoPg } from "../../../../src/server/repo/antiCheatRepo";
+import { riskPolicyRepoPg } from "../../../../src/server/repo/riskPolicyRepo";
 
 const telemetrySchema = z
   .object({
@@ -45,6 +46,9 @@ export async function POST(req: Request) {
   }
   const run = parsed.data;
   const repo = antiCheatRepoPg();
+  const policyRepo = riskPolicyRepoPg();
+  await policyRepo.seedIfMissing("system");
+  const policy = await policyRepo.getActive();
   const t = run.telemetry || {};
   const telemetry = {
     runId: `${run.address}:${run.timestamp}`,
@@ -69,7 +73,7 @@ export async function POST(req: Request) {
     clientMeta: {},
     serverMeta: {},
   };
-  const risk = evaluateRisk(telemetry);
+  const risk = evaluateRisk(telemetry, (policy?.config as any) || (await import("../../../../src/server/repo/riskPolicyRepo")).getDefaultRiskConfig());
   await repo.recordRun(telemetry, risk);
   if (risk.decision === "review") await repo.enqueueReview(telemetry.runId, telemetry.address);
   if (risk.decision === "allow") {
