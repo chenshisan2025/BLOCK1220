@@ -154,6 +154,7 @@ export default function PixiGame({
           bossCtx.swapCount += 1;
           const gate = bossController.onSwapAttempt(idxA, idxB, bossCtx);
           if (!gate.allow) {
+            onEventSignals?.({ swap: { total: 1, valid: 0 } });
             SoundManager.get().playSfx("SFX_INVALID_SWAP");
             const tg = bossController.getTelegraph?.();
             if (tg?.kind === "REVERT") {
@@ -168,6 +169,7 @@ export default function PixiGame({
         }
         const willMatch = isValidSwap(prev, idxA, idxB);
         if (willMatch) {
+          onEventSignals?.({ swap: { total: 1, valid: 1 } });
           SoundManager.get().playSfx("SFX_SWAP");
           await animateSwap(app, aSp as any, bSp as any);
           const swapped = engineSwap(prev, intent.a, intent.b);
@@ -196,6 +198,7 @@ export default function PixiGame({
               cur = nextState;
               break;
             }
+            onEventSignals?.({ cascade: 1 });
             board.render(nextState as any, null);
             if (bossController) {
               const w = config.width;
@@ -224,14 +227,14 @@ export default function PixiGame({
               if (!appRef.current) break;
               if (trig.kind === "Color") {
                 await animateSpecialColor(appRef.current, board.root);
-                onEventSignals?.({ specialConsumed: { Color: 1 } });
+                onEventSignals?.({ specialConsumed: { Color: 1 }, specials: { total: 1, Color: 1 } });
               } else if (trig.kind === "Line") {
                 const ori = trig.orientation === "row" ? "horizontal" : "vertical";
                 await animateSpecialLine(appRef.current, board.root, trig.lineIndex, ori);
-                onEventSignals?.({ specialConsumed: { Line: 1 } });
+                onEventSignals?.({ specialConsumed: { Line: 1 }, specials: { total: 1, Line: 1 } });
               } else {
                 await animateSpecialBomb(appRef.current, trig.cx, trig.cy, trig.radius);
-                onEventSignals?.({ specialConsumed: { Bomb: 1 } });
+                onEventSignals?.({ specialConsumed: { Bomb: 1 }, specials: { total: 1, Bomb: 1 } });
               }
             }
             const clearSprites = clearIds

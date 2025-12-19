@@ -20,4 +20,5 @@ import "./validate-events.mjs";
 import "./validate-admin-config.mjs";
 import "./validate-events-history.mjs";
 import "./validate-risk.mjs";
+import "./validate-audio-telemetry.mjs";
 console.log("\n✅ ALL VALIDATIONS PASSED\n");

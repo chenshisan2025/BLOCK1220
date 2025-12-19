@@ -1,6 +1,7 @@
 "use client";
 import { NeonCard } from "../../components/ui/NeonCard";
 import { NeonButton } from "../../components/ui/NeonButton";
+import { SoundManager } from "../../lib/audio/SoundManager";
 
 export function GameOverModal({
   mode,
@@ -33,8 +34,8 @@ export function GameOverModal({
             {mode === "endless" && (<><div className="text-left opacity-80">RankScore</div><div className="text-right font-mono">{rankScore}</div></>)}
           </div>
           <div className="flex items-center gap-4 justify-center">
-            <NeonButton onClick={onPlayAgain}>Play Again</NeonButton>
-            <NeonButton onClick={onBack}>{mode === "endless" ? "Go Leaderboard" : "Back to Play"}</NeonButton>
+            <NeonButton onClick={() => { SoundManager.get().initOnFirstGesture(); onPlayAgain(); }}>Play Again</NeonButton>
+            <NeonButton onClick={() => { SoundManager.get().initOnFirstGesture(); onBack(); }}>{mode === "endless" ? "Go Leaderboard" : "Back to Play"}</NeonButton>
           </div>
         </div>
       </NeonCard>

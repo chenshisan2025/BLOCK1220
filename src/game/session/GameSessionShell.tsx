@@ -16,6 +16,7 @@ import { createLCGRng } from "../story/boss/_rng";
 import type { BossCtx } from "../story/boss/bossTypes";
 import type { RunResult } from "./runResult";
 import { getCampaign, getSponsor, getBox } from "../story/sponsorLoader";
+import { SoundManager } from "../../lib/audio/SoundManager";
 
 export default function GameSessionShell() {
   const sp = useSearchParams();
@@ -73,6 +74,7 @@ export default function GameSessionShell() {
 
   function onRevive() {
     if (revivesUsed >= cfg.reviveMax) return;
+    SoundManager.get().initOnFirstGesture();
     setRevivesUsed((x) => x + 1);
     setReviveToken((x) => x + 1);
     setSession("RUNNING");
@@ -83,6 +85,16 @@ export default function GameSessionShell() {
   const effectiveTime = cfg.limitSeconds + revivesUsed * cfg.reviveAddSeconds;
   const rankScore = mode === "endless" ? Math.floor((hud.score * 60) / effectiveTime) : 0;
   const [sponsorHud, setSponsorHud] = useState<{ name: string; logo?: string; progress?: { current: number; required: number } } | null>(null);
+  const telemetryRef = useRef({
+    revivesUsed: 0,
+    swapsTotal: 0,
+    swapsValid: 0,
+    cascadesTotal: 0,
+    specialsTotal: 0,
+    specialsLine: 0,
+    specialsBomb: 0,
+    specialsColor: 0,
+  });
 
   useEffect(() => {
     if (!bossController) return;
@@ -128,6 +140,16 @@ export default function GameSessionShell() {
         effectiveTimeSec: effectiveTime,
         rankScore: Math.floor((hud.score * 60) / effectiveTime),
         timestamp: Date.now(),
+        telemetry: {
+          revivesUsed,
+          swapsTotal: telemetryRef.current.swapsTotal,
+          swapsValid: telemetryRef.current.swapsValid,
+          cascadesTotal: telemetryRef.current.cascadesTotal,
+          specialsTotal: telemetryRef.current.specialsTotal,
+          specialsLine: telemetryRef.current.specialsLine,
+          specialsBomb: telemetryRef.current.specialsBomb,
+          specialsColor: telemetryRef.current.specialsColor,
+        },
       };
       try {
         await fetch("/api/leaderboard/run", {
@@ -211,6 +233,27 @@ export default function GameSessionShell() {
         bossCtx={bossCtxRef.current as any}
         sponsor={sponsorHud as any}
         onEventSignals={async (signals: any) => {
+          if (signals?.swap) {
+            telemetryRef.current.swapsTotal += Number(signals.swap.total || 0);
+            telemetryRef.current.swapsValid += Number(signals.swap.valid || 0);
+          }
+          if (signals?.cascade) {
+            telemetryRef.current.cascadesTotal += Number(signals.cascade || 0);
+          }
+          if (signals?.specials) {
+            telemetryRef.current.specialsTotal += Number(signals.specials.total || 0);
+            telemetryRef.current.specialsLine += Number(signals.specials.Line || 0);
+            telemetryRef.current.specialsBomb += Number(signals.specials.Bomb || 0);
+            telemetryRef.current.specialsColor += Number(signals.specials.Color || 0);
+          }
+          const forwardSignals: any = { ...signals };
+          if (signals?.specials) {
+            forwardSignals.specialConsumed = {
+              Line: Number(signals.specials.Line || 0),
+              Bomb: Number(signals.specials.Bomb || 0),
+              Color: Number(signals.specials.Color || 0),
+            };
+          }
           let address = "0x0000000000000000000000000000000000000000";
           try {
             const eth = (window as any).ethereum;
@@ -220,7 +263,7 @@ export default function GameSessionShell() {
             }
           } catch {}
           try {
-            await fetch("/api/events/report", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ address, mode, signals }) });
+            await fetch("/api/events/report", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ address, mode, signals: forwardSignals }) });
           } catch {}
         }}
       />

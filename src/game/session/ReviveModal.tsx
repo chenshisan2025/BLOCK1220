@@ -1,6 +1,7 @@
 "use client";
 import { NeonCard } from "../../components/ui/NeonCard";
 import { NeonButton } from "../../components/ui/NeonButton";
+import { SoundManager } from "../../lib/audio/SoundManager";
 
 export function ReviveModal({ used, max, onRevive, onEnd }: { used: number; max: number; onRevive: () => void; onEnd: () => void }) {
   const can = used < max;
@@ -11,8 +12,8 @@ export function ReviveModal({ used, max, onRevive, onEnd }: { used: number; max:
           <div className="text-xl font-bold">时间到，是否复活 +30 秒？</div>
           <div className="opacity-80">Revives {used}/{max}</div>
           <div className="flex items-center gap-4 justify-center">
-            <NeonButton onClick={onEnd}>End Run</NeonButton>
-            <NeonButton onClick={can ? onRevive : undefined}>{can ? "Revive" : "Revive (Maxed)"}</NeonButton>
+            <NeonButton onClick={() => { SoundManager.get().initOnFirstGesture(); onEnd(); }}>End Run</NeonButton>
+            <NeonButton onClick={can ? () => { SoundManager.get().initOnFirstGesture(); onRevive(); } : undefined}>{can ? "Revive" : "Revive (Maxed)"}</NeonButton>
           </div>
         </div>
       </NeonCard>

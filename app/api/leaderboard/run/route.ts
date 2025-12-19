@@ -5,6 +5,19 @@ import { migratePg } from "../../../../src/server/db/migratePg";
 import { evaluateRisk } from "../../../../src/server/risk/riskModel";
 import { antiCheatRepoPg } from "../../../../src/server/repo/antiCheatRepo";
 
+const telemetrySchema = z
+  .object({
+    revivesUsed: z.number().optional(),
+    swapsTotal: z.number().optional(),
+    swapsValid: z.number().optional(),
+    cascadesTotal: z.number().optional(),
+    specialsTotal: z.number().optional(),
+    specialsLine: z.number().optional(),
+    specialsBomb: z.number().optional(),
+    specialsColor: z.number().optional(),
+  })
+  .optional();
+
 const runSchema = z.object({
   mode: z.literal("endless"),
   address: z.string(),
@@ -12,6 +25,7 @@ const runSchema = z.object({
   effectiveTimeSec: z.number(),
   rankScore: z.number(),
   timestamp: z.number(),
+  telemetry: telemetrySchema,
 });
 
 function getDay(ts: number) {
@@ -31,6 +45,7 @@ export async function POST(req: Request) {
   }
   const run = parsed.data;
   const repo = antiCheatRepoPg();
+  const t = run.telemetry || {};
   const telemetry = {
     runId: `${run.address}:${run.timestamp}`,
     ts: run.timestamp,
@@ -41,14 +56,14 @@ export async function POST(req: Request) {
     rawScore: run.rawScore,
     effectiveTimeSec: run.effectiveTimeSec,
     rankScore: Math.floor(run.rankScore),
-    revivesUsed: 0,
-    swapsTotal: 0,
-    swapsValid: 0,
-    cascadesTotal: 0,
-    specialsTotal: 0,
-    specialsLine: 0,
-    specialsBomb: 0,
-    specialsColor: 0,
+    revivesUsed: Number(t.revivesUsed ?? 0),
+    swapsTotal: Number(t.swapsTotal ?? 0),
+    swapsValid: Number(t.swapsValid ?? 0),
+    cascadesTotal: Number(t.cascadesTotal ?? 0),
+    specialsTotal: Number(t.specialsTotal ?? 0),
+    specialsLine: Number(t.specialsLine ?? 0),
+    specialsBomb: Number(t.specialsBomb ?? 0),
+    specialsColor: Number(t.specialsColor ?? 0),
     bossType: null,
     bossFlags: {},
     clientMeta: {},

@@ -10,6 +10,7 @@ export class SoundManager {
 
   private ctx: AudioContext | null = null;
   private vol: Vol = { master: 0.9, sfx: 0.8, mute: false };
+  private unlocked = false;
 
   private maxVoices = 6;
   private activeVoices = 0;
@@ -24,7 +25,22 @@ export class SoundManager {
 
   initOnFirstGesture() {
     if (!this.ctx) this.ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
-    if (this.ctx.state === "suspended") this.ctx.resume();
+    if (this.ctx.state === "suspended") {
+      const p = this.ctx.resume();
+      if (typeof (p as any)?.then === "function") {
+        (p as Promise<void>).then(() => {
+          this.unlocked = this.ctx?.state === "running";
+        });
+      } else {
+        this.unlocked = true;
+      }
+    } else {
+      this.unlocked = true;
+    }
+  }
+
+  isUnlocked() {
+    return this.unlocked && !!this.ctx && this.ctx.state === "running";
   }
 
   playSfx(id: SoundId) {
