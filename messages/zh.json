@@ -1,0 +1,189 @@
+{
+  "nav": {
+    "logo": "BLOCK WORLD",
+    "home": "首页",
+    "play": "Play",
+    "claim": "Claim",
+    "leaderboard": "Leaderboard",
+    "events": "Events",
+    "sponsors": "Sponsors",
+    "docs": "Docs",
+    "status": "Status",
+    "langZh": "中文",
+    "langEn": "English",
+    "wallet": "连接钱包",
+    "admin": "Admin"
+  },
+  "footer": {
+    "copy": "© BLOCK WORLD — Neon Tech Design System"
+  },
+  "states": {
+    "loading": { "title": "Loading", "desc": "加载中" },
+    "empty": { "title": "Empty", "desc": "暂无数据" },
+    "error": { "title": "Error", "desc": "发生错误" },
+    "degraded": { "title": "Degraded", "desc": "服务降级" }
+  },
+  "pages": {
+    "home": { "title": "主页", "desc": "中文首页占位" },
+    "play": { "title": "Play", "desc": "玩法入口占位" },
+    "claim": { "title": "Claim", "desc": "奖励领取占位" },
+    "leaderboard": { "title": "Leaderboard", "desc": "排行榜占位" },
+    "events": { "title": "Events", "desc": "活动占位" },
+    "sponsors": { "title": "Sponsors", "desc": "赞助商占位" },
+    "docs": { "title": "Docs", "desc": "文档占位" },
+    "status": { "title": "Status", "desc": "系统状态占位" }
+  },
+  "home": {
+    "hero": {
+      "title": "方块世界 · Web3 游戏宇宙",
+      "subtitle": "霓虹科技风，高能玩家聚合",
+      "desc": "连接玩法、赛事与奖励的开放平台",
+      "badge1": "链上即时",
+      "badge2": "公平竞技",
+      "badge3": "社区治理"
+    },
+    "stats": {
+      "title": "生态指标",
+      "epoch": "当前 Epoch",
+      "pool": "奖励池",
+      "rank": "全球排名",
+      "root": "状态根",
+      "note": "统计数据为占位，后续任务接入真实数据"
+    }
+  },
+  "claim": {
+    "title": "奖励领取",
+    "total": "可领取总额",
+    "locked": "锁定金额",
+    "nextUnlock": "下次解锁",
+    "gasEstLabel": "Gas 预估",
+    "batch": "批量领取",
+    "batchHint": "可在任务 07 接入钱包后启用批量",
+    "empty": "暂无可领取奖励",
+    "connectFirst": "请先连接钱包",
+    "claiming": "领取中...",
+    "success": "领取成功（模拟）",
+    "error": "领取失败"
+  },
+  "status": {
+    "title": "系统状态",
+    "operational": "正常运行",
+    "degraded": "服务降级",
+    "outage": "服务中断",
+    "services": {
+      "gameApi": "Game API",
+      "economyApi": "Economy API",
+      "indexer": "Indexer",
+      "rpc": "RPC",
+      "queue": "Queue"
+    },
+    "settlement": {
+      "dailyRank": "每日排名结算",
+      "boxEpoch": "盒子 Epoch 结算"
+    },
+    "humanExplain": {
+      "indexerDegraded": "索引服务延迟升高，读写受影响",
+      "rpcIssue": "RPC 波动，链上交互可能失败",
+      "settlementDelay": "结算延迟，奖励到账时间推迟"
+    }
+  },
+  "demo": {
+    "placeholder": "Demo 容器占位：资源路径与接口稳定，可后续替换"
+  },
+  "live": {
+    "degradedBanner": "数据可能延迟，榜单/奖励刷新可能变慢"
+  },
+  "web3": {
+    "connect": "连接钱包",
+    "disconnect": "断开",
+    "copy": "复制",
+    "copied": "已复制",
+    "wrongNetworkTitle": "网络不正确",
+    "wrongNetworkDesc": "请切换到 BNB Chain（BSC）后继续。",
+    "switchNetwork": "一键切换",
+    "switchFailed": "切换失败，请在钱包中手动切换网络。"
+  },
+  "game": {
+    "mode": { "story": "剧情模式", "endless": "无尽模式" },
+    "revive": { "title": "复活", "desc": "时间到，是否复活 +30 秒？", "button": "复活", "endRun": "结束" },
+    "over": {
+      "titleVictory": "胜利",
+      "titleGameOver": "游戏结束",
+      "rawScore": "原始分数",
+      "rankScore": "排名分",
+      "effectiveTime": "有效时长",
+      "revivesUsed": "复活次数",
+      "playAgain": "再来一局",
+      "backToPlay": "返回 Play"
+    }
+  },
+  "boss": {
+    "freeze": { "incoming": "拥堵冻结即将触发" },
+    "blackhole": { "incoming": "黑洞干扰即将出现" },
+    "rollback": { "revertIncoming": "回滚即将触发（REVERT）" }
+  },
+  "eventsPage": {
+    "title": "活动",
+    "subtitle": "当前活动与进度（只读展示）",
+    "connectFirstTitle": "活动",
+    "connectFirstDesc": "请先连接钱包查看活动进度并领取奖励。",
+    "refresh": "刷新",
+    "sectionActive": "当前活动",
+    "sourceActive": "来自 /api/events/active",
+    "progressLabel": "进度",
+    "completed": "已完成",
+    "claim": "领取",
+    "claiming": "领取中...",
+    "claimSuccess": "领取成功，请到领取中心查看（/zh/claim）。",
+    "claimHint": "奖励将写入 Claimables，并在领取中心显示。",
+    "timeRange": "活动时间",
+    "typeLabel": "类型",
+    "rulesLabel": "规则",
+    "rewardLabel": "奖励",
+    "weiNote": "Wei 金额（与 Claimables 兼容）",
+    "loading": "加载中...",
+    "emptyTitle": "暂无活动",
+    "emptyDesc": "当前没有进行中的活动。你可以在 event_campaigns_v1.json 中添加活动。",
+    "errorTitle": "加载失败",
+    "retry": "重试"
+  },
+  "eventsType": {
+    "CollectEvent": "收集活动",
+    "ClearSpecialEvent": "特效挑战",
+    "PlayStreakEvent": "局数挑战"
+  },
+  "event": {
+    "xmas": {
+      "title": "圣诞收集：圣诞帽",
+      "desc": "剧情模式内收集圣诞帽，累计达到目标即可领取奖励。"
+    },
+    "cny": {
+      "title": "春节挑战：彩虹哈希",
+      "desc": "无尽模式内消耗彩虹哈希（Color 特效）达到目标次数即可领取奖励。"
+    },
+    "collab": {
+      "title": "联名挑战：无尽局数",
+      "desc": "无尽模式完成指定局数即可领取奖励。"
+    }
+  },
+  "eventRule": {
+    "collect": { "story": "在剧情模式中收集 {count} 个 {item}", "any": "收集 {count} 个 {item}" },
+    "clearSpecial": { "endless": "在无尽模式中触发 {count} 次 {special}", "any": "触发 {count} 次 {special}" },
+    "playStreak": { "story": "在剧情模式中完成 {count} 局", "endless": "在无尽模式中完成 {count} 局", "any": "完成 {count} 局游戏" }
+  },
+  "eventItem": {
+    "type_9": "圣诞帽",
+    "type_1": "金币",
+    "type_2": "能量块"
+  },
+  "eventSpecial": {
+    "Line": "直线消除",
+    "Bomb": "炸弹消除",
+    "Color": "彩虹哈希"
+  },
+  "eventBadge": {
+    "mode": { "story": "剧情", "endless": "无尽", "any": "全模式" },
+    "type": { "CollectEvent": "收集", "ClearSpecialEvent": "特效", "PlayStreakEvent": "局数" },
+    "unit": { "count": "×{n}" }
+  }
+}

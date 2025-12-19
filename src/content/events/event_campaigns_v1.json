@@ -1,0 +1,61 @@
+{
+  "version": "v1",
+  "campaigns": [
+    {
+      "eventId": "XMAS_COLLECT_2025",
+      "titleKey": "event.xmas.title",
+      "descKey": "event.xmas.desc",
+      "type": "CollectEvent",
+      "startAt": "2025-12-24T00:00:00Z",
+      "endAt": "2025-12-27T23:59:59Z",
+      "rules": {
+        "targetType": 9,
+        "requiredCount": 100,
+        "onlyStory": true
+      },
+      "reward": {
+        "rewardType": "Token",
+        "symbol": "sFLY",
+        "amountWei": "50000000000000000000",
+        "decimals": 18
+      }
+    },
+    {
+      "eventId": "CNY_SPECIAL_2026",
+      "titleKey": "event.cny.title",
+      "descKey": "event.cny.desc",
+      "type": "ClearSpecialEvent",
+      "startAt": "2026-02-01T00:00:00Z",
+      "endAt": "2026-02-08T23:59:59Z",
+      "rules": {
+        "specialType": "Color",
+        "requiredCount": 20,
+        "mode": "endless"
+      },
+      "reward": {
+        "rewardType": "Token",
+        "symbol": "FLY",
+        "amountWei": "100000000000000000000",
+        "decimals": 18
+      }
+    },
+    {
+      "eventId": "COLLAB_PLAYSTREAK",
+      "titleKey": "event.collab.title",
+      "descKey": "event.collab.desc",
+      "type": "PlayStreakEvent",
+      "startAt": "2025-01-01T00:00:00Z",
+      "endAt": "2025-01-15T23:59:59Z",
+      "rules": {
+        "requiredRuns": 30,
+        "mode": "endless"
+      },
+      "reward": {
+        "rewardType": "Token",
+        "symbol": "FLY",
+        "amountWei": "200000000000000000000",
+        "decimals": 18
+      }
+    }
+  ]
+}

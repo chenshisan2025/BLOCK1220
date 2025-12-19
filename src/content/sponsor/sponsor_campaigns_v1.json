@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "campaigns": [
+    {
+      "campaignId": "BNB_LAUNCH_WEEK",
+      "sponsorId": "BNB_CHAIN",
+      "type": "Collect",
+      "startAt": "2025-01-01T00:00:00Z",
+      "endAt": "2025-01-08T00:00:00Z",
+      "collect": { "targetType": 7, "requiredCount": 50 },
+      "reward": { "type": "Token", "symbol": "BNB", "amount": "0.05" }
+    }
+  ]
+}

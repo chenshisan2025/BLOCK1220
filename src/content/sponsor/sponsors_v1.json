@@ -1,0 +1,20 @@
+{
+  "version": "v1",
+  "sponsors": [
+    {
+      "sponsorId": "BNB_CHAIN",
+      "name": "BNB Chain",
+      "logo": "/assets/sponsors/bnb.svg",
+      "website": "https://www.bnbchain.org",
+      "twitter": "https://twitter.com/BNBCHAIN",
+      "token": { "symbol": "BNB", "decimals": 18 }
+    },
+    {
+      "sponsorId": "PROJECT_X",
+      "name": "Project X",
+      "logo": "/assets/sponsors/projectx.svg",
+      "website": "https://projectx.io",
+      "twitter": "https://twitter.com/projectx"
+    }
+  ]
+}

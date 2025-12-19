@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "boxes": [
+    {
+      "boxId": "BNB_BOX_CH2",
+      "sponsorId": "BNB_CHAIN",
+      "chapter": 2,
+      "rewards": [
+        { "type": "Token", "symbol": "BNB", "amount": "0.01", "weight": 60 },
+        { "type": "Token", "symbol": "BNB", "amount": "0.05", "weight": 30 },
+        { "type": "Token", "symbol": "BNB", "amount": "0.1", "weight": 10 }
+      ]
+    }
+  ]
+}

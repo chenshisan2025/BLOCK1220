@@ -1,0 +1,8 @@
+{
+  "levels": [
+    { "levelId": 1, "chapter": 1, "mode": "story", "gridSize": 6, "colorsCount": 6, "goal": { "kind": "Score", "targetScore": 5000 }, "bossProfileId": "CH1_MEMPOOL_FREEZE", "seedRules": 1001 },
+    { "levelId": 11, "chapter": 2, "mode": "story", "gridSize": 6, "colorsCount": 6, "goal": { "kind": "Score", "targetScore": 6000 }, "bossProfileId": "CH2_BLACKHOLE", "seedRules": 2002 },
+    { "levelId": 12, "chapter": 2, "mode": "story", "gridSize": 6, "colorsCount": 6, "goal": { "kind": "Collect", "targetType": 1, "count": 20 }, "bossProfileId": "CH2_BLACKHOLE", "seedRules": 120042 },
+    { "levelId": 21, "chapter": 4, "mode": "story", "gridSize": 6, "colorsCount": 6, "goal": { "kind": "Score", "targetScore": 7000 }, "bossProfileId": "CH4_REENTRANCY_ROLLBACK", "seedRules": 3003 }
+  ]
+}

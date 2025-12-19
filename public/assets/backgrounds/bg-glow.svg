@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <radialGradient id="neonGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="currentColor" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="currentColor" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="0" y="0" width="800" height="400" fill="url(#neonGlow)"/>
+</svg>

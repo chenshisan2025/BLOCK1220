@@ -1,0 +1,41 @@
+{
+  "locale": "zh",
+  "chainId": 1,
+  "serverNow": 1734410000,
+  "address": "0x0000000000000000000000000000000000000000",
+  "contracts": {
+    "rewardDistributor": "0x1111111111111111111111111111111111111111",
+    "vestingVault": "0x2222222222222222222222222222222222222222"
+  },
+  "notices": [
+    { "level": "info", "code": "SETTLE_PROGRESSIVE", "message": "奖励将逐步结算，请关注系统状态页面。" },
+    { "level": "warning", "code": "BATCH_LATER", "message": "批量领取将在后续任务启用。" }
+  ],
+  "claims": [
+    {
+      "rootType": "DailyRank",
+      "periodId": "2025-12-16",
+      "periodKey": "DR-20251216",
+      "token": { "symbol": "BW", "decimals": 18 },
+      "amountWei": "123000000000000000",
+      "proof": ["0xproof1", "0xproof2"],
+      "isClaimed": false,
+      "isVesting": false,
+      "meta": { "title": "每日排行奖励", "subtitle": "第 2025-12-16 日度周期" },
+      "rootRef": { "rootHash": "0xroot1", "txHash": "0xtx1", "ts": 1734320000, "explorerUrl": "https://example.com/tx/0xtx1" }
+    },
+    {
+      "rootType": "BoxEpoch",
+      "periodId": "E-20251216-01",
+      "periodKey": "BE-20251216-01",
+      "token": { "symbol": "BW", "decimals": 18 },
+      "amountWei": "456000000000000000",
+      "proof": ["0xproofA", "0xproofB"],
+      "isClaimed": false,
+      "isVesting": true,
+      "vesting": { "startTs": 1734320000, "cliffSeconds": 86400, "durationSeconds": 2592000, "immediateUnlockBps": 1000 },
+      "meta": { "title": "周期间奖励", "subtitle": "Epoch E-20251216-01" },
+      "rootRef": { "rootHash": "0xroot2", "txHash": "0xtx2", "ts": 1734323600, "explorerUrl": "https://example.com/tx/0xtx2" }
+    }
+  ]
+}

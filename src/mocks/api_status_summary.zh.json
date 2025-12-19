@@ -1,0 +1,27 @@
+{
+  "locale": "zh",
+  "serverNow": 1734410000,
+  "overall": { "status": "operational", "message": "系统运行正常" },
+  "services": {
+    "gameApi": { "status": "operational", "latencyMs": 120 },
+    "economyApi": { "status": "operational", "latencyMs": 150 },
+    "indexer": { "status": "degraded", "lagBlocks": 5, "message": "索引延迟升高" },
+    "rpc": { "status": "operational", "message": "网络稳定" },
+    "queue": { "status": "operational", "backlog": 0 }
+  },
+  "settlements": {
+    "dailyRank": { "status": "operational", "note": "日结稳定" },
+    "boxEpoch": { "status": "degraded", "note": "周期间结算轻微延迟" }
+  },
+  "lastRoots": [
+    { "rootType": "dailyRank", "periodId": "2025-12-16", "rootHash": "0xroot1", "txHash": "0xtx1", "ts": 1734320000, "explorerUrl": "https://example.com/tx/0xtx1" },
+    { "rootType": "boxEpoch", "periodId": "E-20251216-01", "rootHash": "0xroot2", "txHash": "0xtx2", "ts": 1734323600, "explorerUrl": "https://example.com/tx/0xtx2" }
+  ],
+  "contracts": {
+    "rewardDistributor": "0x1111111111111111111111111111111111111111",
+    "vestingVault": "0x2222222222222222222222222222222222222222",
+    "sponsorVault": "0x3333333333333333333333333333333333333333",
+    "treasury": "0x4444444444444444444444444444444444444444"
+  },
+  "incidents": []
+}

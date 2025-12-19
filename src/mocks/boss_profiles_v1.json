@@ -1,0 +1,35 @@
+{
+  "version": "v1",
+  "profiles": [
+    {
+      "bossProfileId": "CH1_MEMPOOL_FREEZE",
+      "bossType": "freeze",
+      "params": {
+        "freezeCount": 3,
+        "intervalSec": 12,
+        "telegraphSec": 2,
+        "unfreezeByAdjacency": true
+      }
+    },
+    {
+      "bossProfileId": "CH2_BLACKHOLE",
+      "bossType": "blackhole",
+      "params": {
+        "blackholeCount": 2,
+        "spawnIntervalSec": 10,
+        "telegraphSec": 2,
+        "consumeRule": "noScoreNoCollect"
+      }
+    },
+    {
+      "bossProfileId": "CH4_REENTRANCY_ROLLBACK",
+      "bossType": "rollback",
+      "params": {
+        "rollbackChances": 3,
+        "triggerEveryNSwaps": 5,
+        "telegraphSec": 2,
+        "messageKey": "boss.rollback.revertIncoming"
+      }
+    }
+  ]
+}

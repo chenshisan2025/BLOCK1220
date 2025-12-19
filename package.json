@@ -1,0 +1,52 @@
+{
+  "name": "block-world",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "validate": "node scripts/validate/validate-all.mjs",
+    "validate:pixi": "node scripts/validate/validate-pixi.mjs",
+    "validate:hud": "node scripts/validate/validate-hud.mjs",
+    "validate:session": "node scripts/validate/validate-session.mjs",
+    "validate:story": "node scripts/validate/validate-story.mjs",
+    "validate:levels": "node scripts/validate/validate-story-levels.mjs",
+    "validate:files": "node scripts/validate/validate-files.mjs",
+    "validate:routes": "node scripts/validate/validate-routes.mjs",
+    "validate:i18n": "node scripts/validate/validate-i18n.mjs",
+    "validate:api": "node scripts/validate/validate-api.mjs",
+    "validate:audio": "node scripts/validate/validate-audio.mjs",
+    "validate:ui": "node scripts/validate/validate-ui-states.mjs",
+    "validate:style": "node scripts/validate/validate-style.mjs",
+    "validate:web3": "node scripts/validate/validate-web3.mjs",
+    "validate:admin-sponsor": "node scripts/validate/validate-admin-sponsor.mjs",
+    "validate:vercel-pg": "node scripts/validate/validate-vercel-pg.mjs",
+    "validate:hardening": "node scripts/validate/validate-hardening.mjs",
+    "validate:admin-config": "node scripts/validate/validate-admin-config.mjs"
+  },
+  "dependencies": {
+    "@base-org/account": "^2.5.0",
+    "@coinbase/wallet-sdk": "^4.3.7",
+    "@tanstack/react-query": "^5.90.12",
+    "lucide-react": "^0.561.0",
+    "next": "14.2.7",
+    "next-intl": "^4.6.1",
+    "pixi.js": "^8.14.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "viem": "^2.43.1",
+    "wagmi": "^3.1.0",
+    "zod": "^4.2.1",
+    "postgres": "^3.4.4"
+  },
+  "devDependencies": {
+    "@types/node": "25.0.3",
+    "@types/react": "19.2.7",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.31",
+    "tailwindcss": "3.4.10",
+    "typescript": "5.6.3"
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "nav": {
+    "logo": "BLOCK WORLD",
+    "home": "Home",
+    "play": "Play",
+    "claim": "Claim",
+    "leaderboard": "Leaderboard",
+    "events": "Events",
+    "sponsors": "Sponsors",
+    "docs": "Docs",
+    "status": "Status",
+    "langZh": "中文",
+    "langEn": "English",
+    "wallet": "Connect Wallet",
+    "admin": "Admin"
+  },
+  "footer": {
+    "copy": "© BLOCK WORLD — Neon Tech Design System"
+  },
+  "states": {
+    "loading": { "title": "Loading", "desc": "Loading" },
+    "empty": { "title": "Empty", "desc": "No Data" },
+    "error": { "title": "Error", "desc": "Error occurred" },
+    "degraded": { "title": "Degraded", "desc": "Service degraded" }
+  },
+  "pages": {
+    "home": { "title": "Home", "desc": "English home placeholder" },
+    "play": { "title": "Play", "desc": "Play page placeholder" },
+    "claim": { "title": "Claim", "desc": "Claim page placeholder" },
+    "leaderboard": { "title": "Leaderboard", "desc": "Leaderboard placeholder" },
+    "events": { "title": "Events", "desc": "Events placeholder" },
+    "sponsors": { "title": "Sponsors", "desc": "Sponsors placeholder" },
+    "docs": { "title": "Docs", "desc": "Docs placeholder" },
+    "status": { "title": "Status", "desc": "Status placeholder" }
+  },
+  "home": {
+    "hero": {
+      "title": "Block World · Web3 Gaming Universe",
+      "subtitle": "Neon Tech style, high-energy players",
+      "desc": "Open platform connecting gameplay, events and rewards",
+      "badge1": "On-chain realtime",
+      "badge2": "Fair competition",
+      "badge3": "Community governance"
+    },
+    "stats": {
+      "title": "Ecosystem Stats",
+      "epoch": "Current Epoch",
+      "pool": "Reward Pool",
+      "rank": "Global Rank",
+      "root": "State Root",
+      "note": "Stats are placeholders; real data will be integrated later"
+    }
+  },
+  "claim": {
+    "title": "Claim Rewards",
+    "total": "Total Claimable",
+    "locked": "Locked Amount",
+    "nextUnlock": "Next Unlock",
+    "gasEstLabel": "Gas Estimation",
+    "batch": "Batch Claim",
+    "batchHint": "Batch will be enabled after wallet integration (Task 07)",
+    "empty": "No claimable rewards",
+    "connectFirst": "Please connect your wallet first",
+    "claiming": "Claiming...",
+    "success": "Claim success (mock)",
+    "error": "Claim failed"
+  },
+  "status": {
+    "title": "System Status",
+    "operational": "Operational",
+    "degraded": "Degraded",
+    "outage": "Outage",
+    "services": {
+      "gameApi": "Game API",
+      "economyApi": "Economy API",
+      "indexer": "Indexer",
+      "rpc": "RPC",
+      "queue": "Queue"
+    },
+    "settlement": {
+      "dailyRank": "Daily Rank Settlement",
+      "boxEpoch": "Box Epoch Settlement"
+    },
+    "humanExplain": {
+      "indexerDegraded": "Indexer latency increased, read/write affected",
+      "rpcIssue": "RPC fluctuations, on-chain interactions may fail",
+      "settlementDelay": "Settlement delays, reward arrival postponed"
+    }
+  },
+  "demo": {
+    "placeholder": "Demo container placeholder: stable paths and interfaces, replaceable later"
+  },
+  "live": {
+    "degradedBanner": "Data may be delayed; leaderboard/rewards may update slowly"
+  },
+  "web3": {
+    "connect": "Connect Wallet",
+    "disconnect": "Disconnect",
+    "copy": "Copy",
+    "copied": "Copied",
+    "wrongNetworkTitle": "Wrong network",
+    "wrongNetworkDesc": "Please switch to BNB Chain (BSC) to continue.",
+    "switchNetwork": "Switch Network",
+    "switchFailed": "Switch failed. Please switch network in your wallet."
+  },
+  "game": {
+    "mode": { "story": "Story", "endless": "Endless" },
+    "revive": { "title": "Revive", "desc": "Time up — revive +30s?", "button": "Revive", "endRun": "End Run" },
+    "over": {
+      "titleVictory": "Victory",
+      "titleGameOver": "Game Over",
+      "rawScore": "RawScore",
+      "rankScore": "RankScore",
+      "effectiveTime": "EffectiveTime",
+      "revivesUsed": "RevivesUsed",
+      "playAgain": "Play Again",
+      "backToPlay": "Back to Play"
+    }
+  },
+  "boss": {
+    "freeze": { "incoming": "Freeze incoming" },
+    "blackhole": { "incoming": "Blackhole incoming" },
+    "rollback": { "revertIncoming": "REVERT incoming" }
+  },
+  "eventsPage": {
+    "title": "Events",
+    "subtitle": "Active campaigns and your progress (read-only)",
+    "connectFirstTitle": "Events",
+    "connectFirstDesc": "Connect your wallet to view progress and claim rewards.",
+    "refresh": "Refresh",
+    "sectionActive": "Active Events",
+    "sourceActive": "Source: /api/events/active",
+    "progressLabel": "Progress",
+    "completed": "Completed",
+    "claim": "Claim",
+    "claiming": "Claiming...",
+    "claimSuccess": "Claimed. Check Claim Center (/en/claim).",
+    "claimHint": "Rewards are written to Claimables and shown in Claim Center.",
+    "timeRange": "Time Window",
+    "typeLabel": "Type",
+    "rulesLabel": "Rules",
+    "rewardLabel": "Reward",
+    "weiNote": "Wei amount (claimables-compatible)",
+    "loading": "Loading...",
+    "emptyTitle": "No active events",
+    "emptyDesc": "There are no active campaigns right now. Add campaigns in event_campaigns_v1.json.",
+    "errorTitle": "Failed to load",
+    "retry": "Retry"
+  },
+  "eventsType": {
+    "CollectEvent": "Collect",
+    "ClearSpecialEvent": "Special Clears",
+    "PlayStreakEvent": "Play Streak"
+  },
+  "event": {
+    "xmas": {
+      "title": "XMAS Collect: Santa Hat",
+      "desc": "Collect Santa Hats in Story mode. Reach the target to claim rewards."
+    },
+    "cny": {
+      "title": "CNY Challenge: Rainbow Hash",
+      "desc": "Consume Color specials in Endless mode to reach the target and claim rewards."
+    },
+    "collab": {
+      "title": "Collab Challenge: Endless Runs",
+      "desc": "Complete a number of Endless runs to claim rewards."
+    }
+  },
+  "eventRule": {
+    "collect": { "story": "Collect {count} {item} in Story mode", "any": "Collect {count} {item}" },
+    "clearSpecial": { "endless": "Trigger {count} {special} in Endless mode", "any": "Trigger {count} {special}" },
+    "playStreak": { "story": "Complete {count} runs in Story mode", "endless": "Complete {count} runs in Endless mode", "any": "Complete {count} runs" }
+  },
+  "eventItem": {
+    "type_9": "Santa Hats",
+    "type_1": "Coins",
+    "type_2": "Energy Blocks"
+  },
+  "eventSpecial": {
+    "Line": "Line Clears",
+    "Bomb": "Bomb Clears",
+    "Color": "Rainbow Hash"
+  },
+  "eventBadge": {
+    "mode": { "story": "Story", "endless": "Endless", "any": "Any" },
+    "type": { "CollectEvent": "Collect", "ClearSpecialEvent": "Special", "PlayStreakEvent": "Runs" },
+    "unit": { "count": "×{n}" }
+  }
+}
